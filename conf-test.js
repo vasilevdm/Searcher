@@ -1,5 +1,6 @@
 let conf = {};
 conf.clientID = 'YOUR CLIENT ID';
-confclientSecret = 'YOUR CLIENT SECRET';
+conf.clientSecret = 'YOUR CLIENT SECRET';
+conf.appId = 'YOUR APP ID';
 
 module.exports = conf;
