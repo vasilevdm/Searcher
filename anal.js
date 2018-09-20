@@ -2,7 +2,7 @@ const conf = require('./conf.js')
 var fetch = require("node-fetch");
 
 const appId = conf.appId; // from ebay dev console
-const keywords = '555m'; // what we need
+const keywords = 'x1+carbon+i5%205'; // what we need
 const categoryId = '175672'; // category PC Laptops & Netbooks
 let filters = [
 	'itemFilter(0).name=ListingType',
@@ -45,17 +45,21 @@ const makeCall = async (endpoint) => {
 	        const items_list = jsonResponse.findCompletedItemsResponse[0].searchResult[0].item;
 	        let sum = 0;
 
-	        items_list.forEach(item => {
-	        	const cost = Number(item.sellingStatus[0].currentPrice[0].__value__);
-	        	const date = new Date(item.listingInfo[0].endTime[0]);
-	        	console.log(Math.round(cost)+'$ : '+date.toDateString()+' : '+item.viewItemURL);
-	        	// console.log(Math.round(cost)+'$ : '+date.toDateString()+' : '+item.title+' : '+item.viewItemURL);
-	        	sum += cost;
-	        });
-	        console.log('average: '+Math.round(sum/items_list.length)+'$');
+	        if(items_list) {
+		        items_list.forEach(item => {
+		        	const cost = Number(item.sellingStatus[0].currentPrice[0].__value__);
+		        	const date = new Date(item.listingInfo[0].endTime[0]);
+		        	console.log(Math.round(cost)+'$ : '+date.toDateString()+' : '+item.viewItemURL);
+		        	// console.log(Math.round(cost)+'$ : '+date.toDateString()+' : '+item.title+' : '+item.viewItemURL);
+		        	sum += cost;
+		        });
+		        console.log('average: '+Math.round(sum/items_list.length)+'$');
 
-	        const result_json = JSON.stringify(items_list);
-	        // console.log(result_json);
+		        const result_json = JSON.stringify(items_list);
+		        // console.log(result_json);
+	      	} else {
+	      		console.log('empty result');
+	      	}
 	    }
 	} catch(error) {
 	    console.log(error);

@@ -1,6 +1,18 @@
 let conf = {};
-conf.clientID = 'YOUR CLIENT ID';
-conf.clientSecret = 'YOUR CLIENT SECRET';
-conf.appId = 'YOUR APP ID';
+//Ebay
+conf.apiKey = '---';
+conf.clientID = '---';
+conf.clientSecret = '---';
+conf.appId = '---';
+
+//Firebase
+conf.firebase = {
+    apiKey: "---",
+    authDomain: "---",
+    databaseURL: "---",
+    projectId: "---",
+    storageBucket: "---",
+    messagingSenderId: "---"
+};
 
 module.exports = conf;
