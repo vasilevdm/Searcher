@@ -1,15 +1,15 @@
 //import config
-const conf = require('./conf.js');
-const conf_firebase = conf.firebase;
-// let conf = process.env;
-// const conf_firebase = {
-// 	apiKey: process.env.firebase_apiKey,
-// 	authDomain: process.env.firebase_authDomain,
-// 	databaseURL: process.env.firebase_databaseURL,
-// 	projectId: process.env.firebase_projectId,
-// 	storageBucket: process.env.firebase_storageBucket,
-// 	messagingSenderId: process.env.firebase_messagingSenderId
-// };
+// const conf = require('./conf.js');
+// const conf_firebase = conf.firebase;
+let conf = process.env;
+const conf_firebase = {
+	apiKey: process.env.firebase_apiKey,
+	authDomain: process.env.firebase_authDomain,
+	databaseURL: process.env.firebase_databaseURL,
+	projectId: process.env.firebase_projectId,
+	storageBucket: process.env.firebase_storageBucket,
+	messagingSenderId: process.env.firebase_messagingSenderId
+};
 // import from app.js
 const App = require("./app.js");
 //import fetch from "node-fetch";
@@ -51,7 +51,7 @@ const getAll = keywords => {
 			// 	console.log(`date: ${date_h.getDate()}.${date_h.getMonth()} price: ${bid.value}`);
 			// } );
 
-			if (item.price<300) {
+			if (item.price<350) {
 				let msg = [item.title];
 				msg.push(item.price+'$');
 				msg.push(item.link);
