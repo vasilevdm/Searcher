@@ -42,7 +42,7 @@ const writeUserData = (itemId, itemData, keywords) => {
             firebase.database().ref(`listings/${keywords}/${itemId}`).set(data);
             // firebase.database().ref(`listings/${itemId}`).set(data);
         }
-        console.log(`successfuly writed id:${itemData.itemId[0]} ${itemData.title[0]}`);
+        console.log(`successfuly writed id:${itemData.itemId[0]} price:${itemData.sellingStatus[0].currentPrice[0].__value__} ${itemData.title[0]}`);
     });
 }
 

@@ -1,8 +1,32 @@
 {
-  "name": "Searcher",
+  "name": "searcher",
   "version": "1.0.0",
+  "description": "ebay items searcher",
+  "main": "www.js",
   "dependencies": {
     "node-fetch": "~2.2.0",
-    "firebase": "~5.4.2"
-  }
+    "firebase": "~5.4.2",
+    "node-telegram-bot-api": "^0.30.0",
+    "now": "^11.4.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+  	"start": "node www.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasilevdm/Searcher.git"
+  },
+  "keywords": [
+    "node",
+    "javascript",
+    "ebay"
+  ],
+  "author": "vasilevdm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vasilevdm/Searcher/issues"
+  },
+  "homepage": "https://github.com/vasilevdm/Searcher#readme"
 }

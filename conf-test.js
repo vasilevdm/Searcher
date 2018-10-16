@@ -15,4 +15,7 @@ conf.firebase = {
     messagingSenderId: "---"
 };
 
+//Telegram
+conf.telegram = '---';
+
 module.exports = conf;

@@ -2,4 +2,5 @@
 /.idea/*
 /node_modules/*
 /conf.js
+/now.json
 npm-debug.log
