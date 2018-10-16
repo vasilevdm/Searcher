@@ -85,5 +85,5 @@ getAll('T470S');
 setInterval( () => {
 	getAll('T460S');
 	getAll('T470S');
-}, 24 * 60 * 60 * 1000 ); // once per day
+}, 12 * 60 * 60 * 1000 ); // twice per day
 
