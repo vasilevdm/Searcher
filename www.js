@@ -1,14 +1,17 @@
 //import config
-// const conf = require('./conf.js')
-let conf = process.env;
-const conf_firebase = {
-	apiKey: process.env.firebase_apiKey,
-	authDomain: process.env.firebase_authDomain,
-	databaseURL: process.env.firebase_databaseURL,
-	projectId: process.env.firebase_projectId,
-	storageBucket: process.env.firebase_storageBucket,
-	messagingSenderId: process.env.firebase_messagingSenderId
-};
+const conf = require('./conf.js');
+const conf_firebase = conf.firebase;
+// let conf = process.env;
+// const conf_firebase = {
+// 	apiKey: process.env.firebase_apiKey,
+// 	authDomain: process.env.firebase_authDomain,
+// 	databaseURL: process.env.firebase_databaseURL,
+// 	projectId: process.env.firebase_projectId,
+// 	storageBucket: process.env.firebase_storageBucket,
+// 	messagingSenderId: process.env.firebase_messagingSenderId
+// };
+// import from app.js
+const App = require("./app.js");
 //import fetch from "node-fetch";
 const fetch = require("node-fetch");
 //import firebase from "firebase";
@@ -68,10 +71,19 @@ const getAll = keywords => {
 	});
 }
 
+//write to database from ebay
+App.getList('T460S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
+App.getList('T470S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
+setInterval(() => {
+    App.getList('T460S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
+    App.getList('T470S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
+}, 6 * 60 * 60 * 1000 ); // four times per day
+
+//get from database
 getAll('T460S');
 getAll('T470S');
 setInterval( () => {
 	getAll('T460S');
 	getAll('T470S');
-}, 60 *60 * 1000 );
+}, 24 * 60 * 60 * 1000 ); // once per day
 
