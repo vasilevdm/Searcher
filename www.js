@@ -59,7 +59,7 @@ const getAll = keywords => {
 				// msg.push(item.condition);
 				// msg.push('End: '+item.end);
 				let left_days = item.left.replace(/P([^D]*)DT.+/g, "$1");
-				let left_hours = item.left.replace(/P2DT([^H]*)H.+/g, "$1");
+				let left_hours = item.left.replace(/P[^D]*DT([^H]*)H.+/g, "$1");
 				msg.push('Left: '+left_days+'d '+left_hours+'h');
 				// msg.push('Status: '+item.status);
 				// msg.push('Bids: '+item.bids);
@@ -92,9 +92,11 @@ console.log(date_h);
 console.log(date_m);
 
 if(
-	// (date_h==9 && date_m>0 && date_m<9)
-	// ||
-	(date_m>0 && date_m<5)
+	(date_h==9 && date_m>0 && date_m<5)
+	||
+	(date_h==15 && date_m>0 && date_m<5)
+	||
+	(date_h==21 && date_m>0 && date_m<5)
 	) {
 	getAll('T460S');
 	getAll('T470S');
