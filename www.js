@@ -77,7 +77,7 @@ App.getList('T470S', App.categoryId, App.filters, App.sort, conf.appId, firebase
 setInterval(() => {
     App.getList('T460S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
     App.getList('T470S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
-}, 6 * 60 * 60 * 1000 ); // four times per day
+}, 0.5 * 60 * 60 * 1000 ); // every 0.5 hour
 
 //get from database
 getAll('T460S');
@@ -85,5 +85,5 @@ getAll('T470S');
 setInterval( () => {
 	getAll('T460S');
 	getAll('T470S');
-}, 12 * 60 * 60 * 1000 ); // twice per day
+}, 1 * 60 * 60 * 1000 ); // every hour
 
