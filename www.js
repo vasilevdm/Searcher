@@ -52,7 +52,8 @@ const getAll = keywords => {
 			// } );
 
 			if (item.price<350) {
-				// let msg = [item.title];
+				let msg = [];
+				// msg = [item.title];
 				msg.push(item.price+'$');
 				// msg.push(item.photo);
 				// msg.push(item.condition);
@@ -90,14 +91,14 @@ date_m = date.getMinutes();
 console.log(date_h);
 console.log(date_m);
 
-// if(
-// 	(date_h==9 && date_m>0 && date_m<9)
-// 	||
-// 	(date_m>45 && date_m<59)
-// 	) {
+if(
+	// (date_h==9 && date_m>0 && date_m<9)
+	// ||
+	(date_m>0 && date_m<5)
+	) {
 	getAll('T460S');
 	getAll('T470S');
-// }
+}
 
 // setInterval( () => {
 // 	getAll('T460S');
