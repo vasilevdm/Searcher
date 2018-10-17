@@ -77,7 +77,7 @@ App.getList('T470S', App.categoryId, App.filters, App.sort, conf.appId, firebase
 setInterval(() => {
     App.getList('T460S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
     App.getList('T470S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
-}, 0.5 * 60 * 60 * 1000 ); // every 0.5 hour
+}, 0.25 * 60 * 60 * 1000 ); // every 0.25 hour
 
 //get from database
 getAll('T460S');
