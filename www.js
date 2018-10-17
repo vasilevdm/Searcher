@@ -52,15 +52,17 @@ const getAll = keywords => {
 			// } );
 
 			if (item.price<350) {
-				let msg = [item.title];
+				// let msg = [item.title];
 				msg.push(item.price+'$');
-				msg.push(item.link);
 				// msg.push(item.photo);
-				msg.push(item.condition);
-				msg.push('End: '+item.end);
-				msg.push('Left: '+item.left);
+				// msg.push(item.condition);
+				// msg.push('End: '+item.end);
+				let left_days = item.left.replace(/P([^D]*)DT.+/g, "$1");
+				let left_hours = item.left.replace(/P2DT([^H]*)H.+/g, "$1");
+				msg.push('Left: '+left_days+'d '+left_hours+'h');
 				// msg.push('Status: '+item.status);
-				msg.push('Bids: '+item.bids);
+				// msg.push('Bids: '+item.bids);
+				msg.push(item.link);
 				msg.push('');
 				msg = msg.join('\n\r');
 				// console.log(msg);
@@ -70,20 +72,33 @@ const getAll = keywords => {
 		}
 	});
 }
-
+console.log('Start writing');
 //write to database from ebay
 App.getList('T460S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
 App.getList('T470S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
-setInterval(() => {
-    App.getList('T460S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
-    App.getList('T470S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
-}, 0.25 * 60 * 60 * 1000 ); // every 0.25 hour
+// setInterval(() => {
+//     App.getList('T460S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
+//     App.getList('T470S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
+// }, 0.25 * 60 * 60 * 1000 ); // every 0.25 hour
+console.log('End writing');
 
+console.log('Start reading');
 //get from database
-getAll('T460S');
-getAll('T470S');
-setInterval( () => {
+let date = new Date();
+date_h = date.getHours();
+date_m = date.getMinutes();
+console.log(date_h);
+console.log(date_m);
+if(
+	(date_h==9 && date_m>0 && date_m<9)
+	||
+	(date_m>0 && date_m<9)
+	) {
 	getAll('T460S');
 	getAll('T470S');
-}, 1 * 60 * 60 * 1000 ); // every hour
-
+}
+// setInterval( () => {
+// 	getAll('T460S');
+// 	getAll('T470S');
+// }, 1 * 60 * 60 * 1000 ); // every hour
+console.log('End reading');
