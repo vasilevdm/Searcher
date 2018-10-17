@@ -64,7 +64,7 @@ const getAll = keywords => {
 				msg.push('');
 				msg = msg.join('\n\r');
 				// console.log(msg);
-				bot.sendMessage(conf.telegram_chat_id, msg);
+				bot.sendMessage(conf.telegram_chat_id, msg, {"disable_web_page_preview":true});
 			}
 
 		}
