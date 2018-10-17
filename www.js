@@ -89,14 +89,16 @@ date_h = date.getHours();
 date_m = date.getMinutes();
 console.log(date_h);
 console.log(date_m);
-if(
-	(date_h==9 && date_m>0 && date_m<9)
-	||
-	(date_m>0 && date_m<9)
-	) {
+
+// if(
+// 	(date_h==9 && date_m>0 && date_m<9)
+// 	||
+// 	(date_m>45 && date_m<59)
+// 	) {
 	getAll('T460S');
 	getAll('T470S');
-}
+// }
+
 // setInterval( () => {
 // 	getAll('T460S');
 // 	getAll('T470S');
