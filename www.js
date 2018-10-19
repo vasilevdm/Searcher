@@ -51,7 +51,8 @@ const getAll = keywords => {
 			// 	console.log(`date: ${date_h.getDate()}.${date_h.getMonth()} price: ${bid.value}`);
 			// } );
 
-			if (item.price<350) {
+			if (item.price<260) {
+			// if (item.price<350) {
 				let msg = [];
 				// msg = [item.title];
 				msg.push(item.price+'$');
@@ -93,7 +94,7 @@ console.log(date_m);
 
 	// getAll('T460S');
 	// getAll('T470S');
-	
+
 if(
 	(date_h==6 && date_m>=0 && date_m<=5)
 	||
