@@ -91,6 +91,9 @@ date_m = date.getMinutes();
 console.log(date_h);
 console.log(date_m);
 
+	// getAll('T460S');
+	// getAll('T470S');
+	
 if(
 	(date_h==6 && date_m>=0 && date_m<=5)
 	||
