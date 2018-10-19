@@ -20,6 +20,7 @@ const writeUserData = (itemId, itemData, keywords, firebase) => {
                 value: itemData.sellingStatus[0].currentPrice[0].__value__
             });
             data.updatedTime = date;
+            data.data =itemData;
             firebase.database().ref(`listings/${keywords}/${itemId}`).set(data);
             // firebase.database().ref(`listings/${itemId}`).set(data);
         }else {
