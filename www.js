@@ -51,7 +51,7 @@ const getAll = keywords => {
 			// 	console.log(`date: ${date_h.getDate()}.${date_h.getMonth()} price: ${bid.value}`);
 			// } );
 
-			if (item.price<260) {
+			if (item.price<300) {
 			// if (item.price<350) {
 				let msg = [];
 				// msg = [item.title];
@@ -78,6 +78,7 @@ console.log('Start writing');
 //write to database from ebay
 App.getList('T460S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
 App.getList('T470S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
+App.getList('T470', App.categoryId, App.filters, App.sort, conf.appId, firebase);
 // setInterval(() => {
 //     App.getList('T460S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
 //     App.getList('T470S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
@@ -108,6 +109,7 @@ if(
 	) {
 	getAll('T460S');
 	getAll('T470S');
+	getAll('T470');
 }
 
 // setInterval( () => {

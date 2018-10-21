@@ -2,7 +2,8 @@ const conf = require('./conf.js')
 var fetch = require("node-fetch");
 
 const appId = conf.appId; // from ebay dev console
-const keywords = 'x1+carbon+i5%205'; // what we need
+// const keywords = 'x1+carbon+i5%205'; // what we need
+const keywords = 'T460'; // what we need
 const categoryId = '175672'; // category PC Laptops & Netbooks
 let filters = [
 	'itemFilter(0).name=ListingType',
@@ -66,4 +67,6 @@ const makeCall = async (endpoint) => {
 	}
 }
 
+console.log('');
+console.log(keywords);
 makeCall(endpoint);
