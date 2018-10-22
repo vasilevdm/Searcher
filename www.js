@@ -78,6 +78,7 @@ console.log('Start writing');
 //write to database from ebay
 App.getList('T460S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
 App.getList('T470S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
+App.getList('T460', App.categoryId, App.filters, App.sort, conf.appId, firebase);
 App.getList('T470', App.categoryId, App.filters, App.sort, conf.appId, firebase);
 // setInterval(() => {
 //     App.getList('T460S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
@@ -109,6 +110,7 @@ if(
 	) {
 	getAll('T460S');
 	getAll('T470S');
+	getAll('T460');
 	getAll('T470');
 }
 
