@@ -78,8 +78,12 @@ console.log('Start writing');
 //write to database from ebay
 App.getList('T460S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
 App.getList('T470S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
-App.getList('T460', App.categoryId, App.filters, App.sort, conf.appId, firebase);
-App.getList('T470', App.categoryId, App.filters, App.sort, conf.appId, firebase);
+App.getList('thinkpad+x1+6200U', App.categoryId, App.filters, App.sort, conf.appId, firebase);
+App.getList('thinkpad+x1+6300U', App.categoryId, App.filters, App.sort, conf.appId, firebase);
+App.getList('thinkpad+x1+6500U', App.categoryId, App.filters, App.sort, conf.appId, firebase);
+App.getList('thinkpad+x1+6600U', App.categoryId, App.filters, App.sort, conf.appId, firebase);
+// App.getList('T460', App.categoryId, App.filters, App.sort, conf.appId, firebase);
+// App.getList('T470', App.categoryId, App.filters, App.sort, conf.appId, firebase);
 // setInterval(() => {
 //     App.getList('T460S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
 //     App.getList('T470S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
@@ -110,8 +114,12 @@ if(
 	) {
 	getAll('T460S');
 	getAll('T470S');
-	getAll('T460');
-	getAll('T470');
+	getAll('thinkpad+x1+6200U');
+	getAll('thinkpad+x1+6300U');
+	getAll('thinkpad+x1+6500U');
+	getAll('thinkpad+x1+6600U');
+	// getAll('T460');
+	// getAll('T470');
 }
 
 // setInterval( () => {
