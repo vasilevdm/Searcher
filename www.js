@@ -51,7 +51,9 @@ const getAll = keywords => {
 			// 	console.log(`date: ${date_h.getDate()}.${date_h.getMonth()} price: ${bid.value}`);
 			// } );
 
-			if (item.price<300) {
+			let left_days = item.left.replace(/P([^D]*)DT.+/g, "$1");
+			let left_hours = item.left.replace(/P[^D]*DT([^H]*)H.+/g, "$1");
+			if (item.price<300 && left_days>0 && left_hours>0) {
 			// if (item.price<350) {
 				let msg = [];
 				// msg = [item.title];
@@ -59,8 +61,6 @@ const getAll = keywords => {
 				// msg.push(item.photo);
 				// msg.push(item.condition);
 				// msg.push('End: '+item.end);
-				let left_days = item.left.replace(/P([^D]*)DT.+/g, "$1");
-				let left_hours = item.left.replace(/P[^D]*DT([^H]*)H.+/g, "$1");
 				msg.push('Left: '+left_days+'d '+left_hours+'h');
 				// msg.push('Status: '+item.status);
 				// msg.push('Bids: '+item.bids);
