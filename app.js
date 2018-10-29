@@ -86,7 +86,7 @@ const getList = async (keywords, categoryId, filters='', sort='', appId='', fire
             // const items_list = jsonResponse.findItemsAdvancedResponse[0];
             const items_list = jsonResponse.findItemsAdvancedResponse[0].searchResult[0].item;
             // console.log(items_list);
-            if(items_list.length>0)
+            if(items_list && items_list.length>0)
                 items_list.forEach(item => processItem(item, keywords, firebase));
         }
     } catch(error) {

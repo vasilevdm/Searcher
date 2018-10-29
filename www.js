@@ -102,15 +102,15 @@ console.log(date_m);
 	// getAll('T470S');
 
 if(
-	(date_h==6 && date_m>=0 && date_m<5)
+	(date_h==6 && date_m>=0 && date_m<=5)
 	||
-	(date_h==9 && date_m>=0 && date_m<5)
+	(date_h==9 && date_m>=0 && date_m<=5)
 	||
-	(date_h==12 && date_m>=0 && date_m<5)
+	(date_h==12 && date_m>=0 && date_m<=5)
 	||
-	(date_h==15 && date_m>=0 && date_m<5)
+	(date_h==15 && date_m>=0 && date_m<=5)
 	||
-	(date_h==18 && date_m>=0 && date_m<5)
+	(date_h==18 && date_m>=0 && date_m<=5)
 	) {
 	getAll('T460S');
 	getAll('T470S');
