@@ -24,12 +24,11 @@ const telegramToken = conf.telegram;
 const bot = new TelegramBot(telegramToken);
 // bot.sendMessage(conf.telegram_chat_id, 'hElLo!1');
 
-let telegram_buffer = [];
-
 const getAll = keywords => {
 	const itemsRef = firebase.database().ref('/listings/'+keywords);
 	// const items = firebase.database().ref('/listings');
 	itemsRef.once('value', items => {
+		let telegram_buffer = [];
 		itemsData = items.val();
 		for (let index in itemsData) {
 
@@ -58,7 +57,9 @@ const getAll = keywords => {
 			let date_current = new Date();
 			date_current.setHours(date_current.getHours() - 12);
 			let date_end = new Date(item.end);
-			if (item.price<300 && left_days>0 && left_hours>0 && date_current < date_end) {
+			let updated_date = new Date(el.updatedTime);
+			updated_date.setHours(updated_date.getHours() + 1);
+			if (item.price<300 && left_days>0 && left_hours>0 && date_current < date_end && updated_date >= date_current) {
 			// if (item.price<350) {
 				let msg = [];
 				// msg = [item.title];
@@ -73,11 +74,13 @@ const getAll = keywords => {
 				msg.push('');
 				msg = msg.join('\n\r');
 				// console.log(msg);
+				//bot.sendMessage(conf.telegram_chat_id, msg, {"disable_web_page_preview":true});
 				telegram_buffer.push(msg);
-				// bot.sendMessage(conf.telegram_chat_id, msg, {"disable_web_page_preview":true});
 			}
 
 		}
+		if (telegram_buffer.length>0)
+			bot.sendMessage(conf.telegram_chat_id, telegram_buffer.join('\n\r'), {"disable_web_page_preview":true});
 	});
 }
 console.log('Start writing');
@@ -126,7 +129,6 @@ if(
 	getAll('thinkpad+x1+6600U');
 	// getAll('T460');
 	// getAll('T470');
-	bot.sendMessage(conf.telegram_chat_id, telegram_buffer.join("\n\r\n\r"), {"disable_web_page_preview":true});
 }
 
 // setInterval( () => {
