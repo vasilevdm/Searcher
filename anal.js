@@ -3,7 +3,8 @@ var fetch = require("node-fetch");
 
 const appId = conf.appId; // from ebay dev console
 // const keywords = 'x1+carbon+i5%205'; // what we need
-const keywords = 'thinkpad+x1+6200U'; // what we need
+// const keywords = 'thinkpad+x1+6200U'; // what we need
+const keywords = 'T470'; // what we need
 // const keywords = 'T460S'; // what we need
 const categoryId = '175672'; // category PC Laptops & Netbooks
 let filters = [
