@@ -86,7 +86,8 @@ const getAll = keywords => {
 console.log('Start writing');
 //write to database from ebay
 App.getList('T460S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
-App.getList('T470S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
+App.getList('T470', App.categoryId, App.filters, App.sort, conf.appId, firebase);
+// App.getList('T470S', App.categoryId, App.filters, App.sort, conf.appId, firebase);
 App.getList('thinkpad+x1+6200U', App.categoryId, App.filters, App.sort, conf.appId, firebase);
 App.getList('thinkpad+x1+6300U', App.categoryId, App.filters, App.sort, conf.appId, firebase);
 App.getList('thinkpad+x1+6500U', App.categoryId, App.filters, App.sort, conf.appId, firebase);
@@ -122,7 +123,8 @@ if(
 	(date_h==18 && date_m>=0 && date_m<=5)
 	) {
 	getAll('T460S');
-	getAll('T470S');
+	getAll('T470');
+	// getAll('T470S');
 	getAll('thinkpad+x1+6200U');
 	getAll('thinkpad+x1+6300U');
 	getAll('thinkpad+x1+6500U');
