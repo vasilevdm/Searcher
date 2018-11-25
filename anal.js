@@ -4,7 +4,7 @@ var fetch = require("node-fetch");
 const appId = conf.appId; // from ebay dev console
 // const keywords = 'x1+carbon+i5%205'; // what we need
 // const keywords = 'thinkpad+x1+6200U'; // what we need
-const keywords = 'T470'; // what we need
+const keywords = 'T460S+i5'; // what we need
 // const keywords = 'T460S'; // what we need
 const categoryId = '175672'; // category PC Laptops & Netbooks
 let filters = [
@@ -49,14 +49,28 @@ const makeCall = async (endpoint) => {
 	        let sum = 0;
 
 	        if(items_list) {
+	        	let min,max;
+	        	// let median = [];
 		        items_list.forEach(item => {
 		        	const cost = Number(item.sellingStatus[0].currentPrice[0].__value__);
 		        	const date = new Date(item.listingInfo[0].endTime[0]);
 		        	console.log(Math.round(cost)+'$ : '+date.toDateString()+' : '+item.viewItemURL);
 		        	// console.log(Math.round(cost)+'$ : '+date.toDateString()+' : '+item.title+' : '+item.viewItemURL);
 		        	sum += cost;
+
+		        	// median.push(cost);
+		        	if(!min)
+		        		min = cost;
+		        	if(!max)
+		        		max = cost;
+		        	if(cost<min)
+		        		min=cost;
+		        	if(cost>max)
+		        		max=cost;
 		        });
-		        console.log('average: '+Math.round(sum/items_list.length)+'$');
+		        // median.sort();
+		        // median = median[Math.round(median.length*0.5)]
+		        console.log('average: '+Math.round(sum/items_list.length)+'$ '+'min: '+min+'$ max: '+max+'$' );
 
 		        const result_json = JSON.stringify(items_list);
 		        // console.log(result_json);
